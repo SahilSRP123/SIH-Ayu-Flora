@@ -1,2 +1,2 @@
-# SIH-Ayu-Flora
+# SIH-AyuFlora
 Smart India Hackathon Project 
