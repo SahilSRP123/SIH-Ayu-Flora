@@ -1,0 +1,33 @@
+/* WIKI SEARCH*/
+.wiki__search {
+  grid-column: 1 / -1; /* Span across all columns */
+  display: flex;
+  margin-top: 1rem; /* Space above the search bar */
+  padding: 0 1.25rem; /* Padding on the sides */
+}
+
+.wiki__search-input {
+  flex-grow: 1; /* Take available space */
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--first-color);
+  border-right: none; /* Remove the right border */
+  outline: none;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+}
+
+.wiki__search-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--first-color);
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.wiki__search-button:hover {
+  background-color: var(--first-color-alt); /* Darken button on hover */
+}

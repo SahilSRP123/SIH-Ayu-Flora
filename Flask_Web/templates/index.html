@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/img/icons8-leaf-25.png" type="image/x-icon">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <title>Ayu Flora</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="{{ url_for('static', filename='img/icons8-leaf-32.png') }}" alt="Ayu Flora" class="nav__logo-icon"> Ayu Flora
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#steps" class="nav__link">Steps</a></li>
+                    <li class="nav__item"><a href="#detect" class="nav__link">Detect</a></li>
+                    <li class="nav__item"><a href="#Wiki" class="nav__link">Wiki</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact Us</a></li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            
+              
+
+            <div class="nav__btns">
+                <!-- Theme Change Button -->
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Home Section -->
+        <section class="home" id="home">
+            <div class="home__container container grid">
+                <img src="/static/img/home1.png" alt="" class="home__img">
+                
+                <div class="home__data">
+                    <h1 class="home__title">Authentic Greens, Pure Healing Means!</h1>
+                    <p class="home__description">Verify the genuineness of your medicinal plants and raw materials—know what's real!</p>
+                    <a href="#about" class="button button--flex">Explore <i class="ri-arrow-right-down-line button__icon"></i></a>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section container" id="about">
+            <div class="about__container grid">
+                <img src="/static/img/about.png" alt="" class="about__img">
+
+                <div class="about__data">
+                    <h2 class="section__title about__title">Discover Our Expertise <br> & Advanced Technology</h2>
+                    <p class="about__description">Harnessing the power of Machine Learning, we specialize in verifying the authenticity of medicinal plants and raw materials. Delve into the intricate details of their medicinal properties with us.</p>
+                    <ul class="about__details-list">
+                        <li>Cutting-edge authentication technology to ensure product integrity.</li>
+                        <li>Detailed insights into the medicinal qualities of plants and raw materials.</li>
+                        <li>Extensive database for in-depth research and knowledge sharing.</li>
+                        <li>Commitment to accuracy and user trust with ongoing model improvements.</li>
+                    </ul>
+                    <a href="#detect" class="button--link button--flex">Explore Now <i class="ri-arrow-right-down-line button__icon"></i></a>
+                </div>
+            </div>
+        </section>
+            <!--STEPS -->
+            <section class="steps section container" id="steps">
+                <div class="steps__bg">
+                    <h2 class="section__title-center steps__title">
+                        Steps to correctly scan your <br> plants or raw materials off right
+                    </h2>
+
+                    <div class="steps__container grid">
+                        <div class="steps__card">
+                            <div class="steps__card-number">01</div>
+                            <h3 class="steps__card-title">Choose Plant or Raw Material</h3>
+                            <p class="steps__card-description">
+                                We offer a wide selection of plant varieties and raw materials for you to choose from.
+                            </p>
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number">02</div>
+                            <h3 class="steps__card-title">Select the Detector Category</h3>
+                            <p class="steps__card-description">
+                                After obtaining the image of the specimen in question, we choose the appropriate detector based on the specimen's category and then upload the image file.
+                            </p>
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number">03</div>
+                            <h3 class="steps__card-title">Get the Results!</h3>
+                            <p class="steps__card-description">
+                                After the model scans the photo, it provides relevant details about the specimen, particularly if it has medicinal properties.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                    <!-- DETECT SECTION -->
+            <section class="detect section container" id="detect">
+                <h2 class="section__title-center">
+                    Detect the Specimen
+                </h2>
+
+                <p class="detect__description">
+                    Choose the appropriate classifier based on the type of specimen, distinguishing between whether it belongs to the Plant category or the Raw Material category.
+                </p>
+
+                <!-- Image Upload and Classification Form -->
+                <form action="/classify" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*">
+                    <button type="submit">Classify</button>
+                </form>
+            </section>
+
+
+            <!-- WIKI SECTION -->
+            <section class="questions section" id="Wiki">
+                <h2 class="section__title-center questions__title container">
+                           Frequently asked Questions:
+                </h2>
+
+                <div class="questions__container container grid">
+                    <div class="questions__group">
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    How accurate is the medicinal plant and raw materials classification?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Our classifier uses advanced algorithms and a comprehensive database of plants to ensure high accuracy. However, like all automated systems, it should be used as a guide rather than a definitive source. We recommend consulting with a b
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Can I use the classifier to identify plants in my garden for medicinal uses?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Yes, the classifier is designed to help identify and understand the potential medicinal uses of plants. Simply upload a clear image of the plant in question, and the system will provide you with information on its potential medicinal properties. Remember to consult a professional before using any plant medicinally.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                     What should I do if the plant I'm looking for isn't in the database?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    If you cannot find a specific plant, please reach out to us with details and a picture of the plant. We continually update our database and appreciate contributions from our user community. Meanwhile, you may also consult with a local expert for assistance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="questions__group">
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                     Can I identify the quality of raw materials using the classifier?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    The classifier provides insights into the characteristics of raw materials, which may help infer quality. However, for a comprehensive quality assessment, especially for commercial purposes, consider additional analysis methods and professional expertise.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                     What are the best practices for storing medicinal plants and raw materials?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Proper storage is essential to maintain the potency of medicinal plants and raw materials. They should be kept in a cool, dry place away from direct sunlight and moisture. Use airtight containers to protect from air and insects, and label them with the date of storage to track their shelf life.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Can I use the classifier to find out which part of the plant is medicinal?
+                                </h3>
+                            </header>
+
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Yes, our classifier provides information not only about the plant species but also details which part of the plant—such as leaves, roots, or flowers—holds medicinal properties. For comprehensive knowledge, always refer to authoritative herbal literature or consult with a professional herbalist.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="wiki__search">
+                    <input type="text" id="searchWiki" placeholder="Search Wiki..." class="wiki__search-input">
+                    <button class="wiki__search-button">Search</button>
+                </div>
+            </section>
+
+                        <!-- CONTACT SECTION -->
+            <section class="contact section container" id="contact">                
+                <div class="contact__container grid">
+                    <div class="contact__box">
+                        <h2 class="section__title">
+                        Feel free <br> to contact us <br>  for assistance.
+                        </h2>
+
+                        <div class="contact__data">
+                            <div class="contact__information">
+                                <h3 class="contact__subtitle">Call us for instant support</h3>
+                                <span class="contact__description">
+                                    <i class="ri-phone-line contact__icon"></i>
+                                    +999 888 777
+                                </span>
+                            </div>
+
+                            <div class="contact__information">
+                                <h3 class="contact__subtitle">Write us by mail</h3>
+                                <span class="contact__description">
+                                    <i class="ri-mail-line contact__icon"></i>
+                                    user@email.com
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Submission Form -->
+                    <form action="/submit_message" method="POST" class="contact__form">
+                        <div class="contact__inputs">
+                            <div class="contact__content">
+                                <input type="text" name="name" placeholder=" " class="contact__input" required>
+                                <label for="" class="contact__label">Name</label>
+                            </div>
+
+                            <div class="contact__content">
+                                <input type="email" name="email" placeholder=" " class="contact__input" required>
+                                <label for="" class="contact__label">Email</label>
+                            </div>
+
+                            <div class="contact__content contact__area">
+                                <textarea name="message" placeholder=" " class="contact__input" required></textarea>                              
+                                <label for="" class="contact__label">Message</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="button button--flex">
+                            Send Message
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+
+        <!--Footer-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <h3 class="footer__title">Contact Us</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">+999 888 777</li>
+                        
+                        <div class="footer__social">
+                            <a href="https://www.facebook.com/" class="footer__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/chin_chillin11/" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" class="footer__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; Ayu-Flora. All rigths reserved</p>
+        </footer>
+        <a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+  
+        <!-- External JavaScript libraries -->
+        <script src="/static/js/scrollreveal.min.js"></script>
+
+        <!-- Main JavaScript file -->
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>
